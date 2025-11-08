@@ -1,0 +1,206 @@
+---
+import Layout2 from '../layouts/Layout2.astro';
+import Goback from '../components/backbutton.astro';
+
+import { Image } from "astro:assets";
+
+import Logo1 from '../assets/hfLogo.png';
+import Logo2 from '../assets/studyupLogo.jpg';
+import Logo3 from '../assets/ionsparkLogo.svg';
+
+
+const projects = [
+  {
+    title: "Health&Future",
+    type: "Role: Designer",
+    description: "A healthcare-oriented mobile app prototype focused on modern, accessible medical solutions. Figma, IbisPaint.",
+    image: Logo1,
+    link:"https://www.figma.com/design/Yagg5b4ogKfXQtX9S02AJc/Health-Future?node-id=889-2&p=f&t=FuzLxxRquxFDy04Q-0"
+  },
+  {
+    title: "StudyUp",
+    type: "Role: Designer and FrontEnd developer",
+    description: "A study management web app that helps students organize their time and learning materials. JavaScript, CSS, React.",
+    image: Logo2,
+    link:"https://github.com/Sneyder0w0/StudyUP_Proyecto.git"
+  },
+  {
+    title: "IonSpark",
+    type: "FrontEnd developer",
+    description: "A service intended to enhance the energy production of enterprises in a enviroment-frienly way. JavaScript, DJango, CSS, NextJs, TypeScript.",
+    image: Logo3,
+    link:"https://github.com/MrAlegria-6/IonSparkProject.git"
+  },
+];
+---
+
+<Layout2>
+  <Goback/>
+
+  <div class="container">
+    <header><h1>Warehouse</h1></header>
+
+    <div class="carousel">
+      <button class="arrow left" id="prev">🢀</button>
+      <button class="arrow right" id="next">🢂</button>
+      
+      {projects.map((project, i) => (
+        <div class={`slide ${i === 0 ? 'active' : ''}`} id={`slide-${i}`}>
+          <Image src={project.image} alt={project.title} width={300} height={150} class="project-image"/>
+          <br>
+          <a href={project.link} target="_blank" rel="noopener noreferrer" class="project-title">
+            {project.title}
+         </a>
+          <p class="project-type">{project.type}</p>
+          <p class="project-description">{project.description}</p>
+        </div>
+      ))}
+
+      
+    </div>
+
+    <style>
+      @import url('https://fonts.cdnfonts.com/css/elnath');
+      @import url('https://fonts.cdnfonts.com/css/cydonia-century');
+      
+      body{
+          margin: 0;
+          padding: 0;
+          background-color: #39a37c;
+          scroll-behavior: smooth;
+      }
+
+      .container {
+        position: absolute;
+        top: 10px;
+        left: 160px;
+        font-family: 'ELNATH', sans-serif;
+        font-size: 30px;
+        color: white;
+      }
+
+      
+
+      .slide {
+        z-index:2;
+        position: relative;
+        opacity: 100%;
+        transition: opacity 0.5s ease-in-out;
+        text-align: center;
+        padding: 1rem 2rem;
+        width: 100%;
+        display:none;
+      }
+
+      .slide.active {
+        display:block;
+        opacity: 1;
+      }
+
+      .project-image {
+        width: 300px;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border-radius: 6px;
+      }
+
+      .project-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: white;
+      }
+
+      .project-type {
+        font-family: 'Cydonia Century', sans-serif;
+        font-size: 25px;
+        color: white;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-description {
+        font-family: 'Cydonia Century', sans-serif;
+        font-size: 20px;
+        color: white;
+      }
+
+      .arrow {
+        z-index:3;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: #f2f2f2;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: color 0.3s;
+        opacity:0.5;
+      }
+
+      .arrow:hover {
+        opacity:1;
+      }
+
+      .left {
+        left: 10px;
+      }
+
+      .right {
+        right: 10px;
+      }
+
+      @media (max-width: 768px) {
+        .carousel {
+          width: 90%;
+          height: auto;
+          padding: 1rem;
+        }
+
+        .project-image {
+          width: 90%;
+          height: auto;
+        }
+
+        .project-description {
+          font-size: 1rem;
+        }
+      }
+      .carousel {
+        z-index:0;
+        position: relative;
+        width: 1050px;
+        height: 450px;
+        overflow: hidden;
+        border-radius: 30px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color:rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+      }
+    </style>
+
+    <script client:load>
+      const slides = document.querySelectorAll('.slide');
+      let current = 0;
+
+      function showSlide(index) {
+        slides.forEach((s,i) => {
+          s.classList.toggle('active', i === index);
+        });
+      }
+
+      document.getElementById('next').addEventListener('click', () => {
+        current = (current+1) % slides.length;
+        showSlide(current);
+      });
+
+      document.getElementById('prev').addEventListener('click', () => {
+        current = (current-1+slides.length) % slides.length;
+        showSlide(current);
+      });
+    </script>
+  </div>
+</Layout2>

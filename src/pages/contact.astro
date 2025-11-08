@@ -1,0 +1,98 @@
+---
+import Layout2 from '../layouts/Layout2.astro';
+import Goback from '../components/backbutton.astro'
+---
+
+<Layout2>
+    <Goback/>
+    <div class="container">
+        <header>
+            <h2 style="font-size:70px;">Contact</h2>
+        </header>
+
+        
+        <div class="form">
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label><br>
+                    <input type="text" id="name" name="name" placeholder="Who am I talking with?" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label><br>
+                    <input type="email" id="email" name="email" placeholder="Your contact here." required>
+                </div>
+             <div class="form-group">
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="10" placeholder="Say hello!" required></textarea>
+                </div>
+               <button type="submit" class="submit-button">Submit</button>
+           </form>
+        
+        </div>
+        <div class="bg"></div>
+    <div>
+        
+    </div>
+
+    </div>
+
+
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/elnath');
+        @import url('https://fonts.cdnfonts.com/css/cydonia-century');
+ 
+    body{
+        margin: 0%;
+        padding: 0%;
+        background-color: purple;
+        scroll-behavior: smooth;
+    }
+
+    .container{
+         font-family: 'ELNATH', sans-serif;
+         font-size: 30px;
+         color: white;
+    }  
+
+    header{
+        position: absolute;
+        top: 10px;
+        left: 160px;
+    }
+
+    .form{
+        z-index:2;
+        font-family: 'Cydonia Century', sans-serif;
+        position: absolute;
+        top: 200px;
+        left: 180px;
+    }
+
+    .bg{
+        position: absolute;
+        top: 160px;
+        left: 115px;
+        width: 255px;
+        height: 235px;
+        border-radius: 10%;
+        background-color: white;
+        backdrop-filter: blur(20px);
+        opacity: 50%;
+        padding: 100px;
+    }
+
+    input{
+        border-radius:10px;
+        border-color:white;
+        width:310px;
+    }
+
+    textarea{
+        border-radius:10px;
+        border-color:white;
+        width:310px;
+        height:220px;
+    }
+
+    </style>
+</Layout2>

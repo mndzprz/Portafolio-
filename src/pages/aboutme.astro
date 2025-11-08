@@ -1,0 +1,124 @@
+---
+import Layout2 from '../layouts/Layout2.astro';
+import Goback from '../components/backbutton.astro'
+---
+
+<Layout2>
+    <Goback/>
+    <div class="container">
+        <header>
+            <h2 style="font-size:70px;">About me</h2>
+        </header>
+        
+        <div class="wholescroll">
+            <div class="section">
+              <div class="bg"></div>
+              <div class="description">
+                <p>My name is Arlim Méndez, I have studied English and programming since 3 years ago, I have participated in different projects and challenges that I think, have made me good in what I do. 
+                I consider myself as an artist, and in my opinion, the only way to express ourselves as humans is to create, that is why I love ilustration and programming. Because there is no path to follow, you create your own.
+                </p>
+              </div>
+            </div>
+          
+            <div class="section">
+              <div class="bg"></div>
+              <div class="description">
+                <p>Habilities</p>
+                <li>FrontEnd developing.</li>
+                <li>Object Oriented Programing.</li>
+                <li>Ussage of frameworks such as Next.js or Astro.</li>
+                <li>Basics of database.</li>
+                <li>Bilingual</li>
+                <li>Self-Taught learning.</li>
+              </div>
+            </div>
+          
+            <div class="section">
+              <div class="bg"></div>
+              <div class="description">
+                <p>Highschool: </p>
+                <li>Complejo Educativo René Toruño Steiner</li><br>
+                <p>Complementary education:</p>
+                <li>Programa Empresarial ¡Supérate!:</li>
+                <ul>- ITS Python Certification.</ul>
+                <ul>- Excel Certification</ul>
+                <ul>- TOEIC Speaking&Writing</ul>
+                <ul>- TOEIC Listenning&Reading</ul><br>
+                <p>Volunteering:</p>
+                <li>Glasswing volunteer teacher.</li>
+              </div>
+            </div>
+          </div>
+    </div>
+
+
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/elnath');
+        @import url('https://fonts.cdnfonts.com/css/cydonia-century');
+ 
+ 
+    body{
+        margin: 0%;
+        padding: 0%;
+        background-color: blue;
+        scroll-behavior: smooth;
+    }
+
+    .container{
+         font-family: 'ELNATH', sans-serif;
+         font-size: 30px;
+         color: white;
+    }  
+
+    header{
+        position: absolute;
+        top: 10px;
+        left: 160px;
+    }
+
+    .wholescroll {
+        position: absolute;
+        top: 160px;
+        left: 115px;
+        overflow-y: auto;
+        width: 555px;
+        height: 495px;
+    }
+
+    .section {
+        position: relative;
+        margin-bottom: 120px; 
+    }
+
+    .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 35px;
+        background-color: white;
+        opacity: 50%;
+        backdrop-filter: blur(20px);
+        z-index: 1;
+    }
+
+    .description {
+        position: relative;
+        z-index: 2;
+        padding-top: 20px;
+        padding-left:20px;
+        padding-right:20px;
+        padding-bottom:20px;
+        font-family: 'Cydonia Century', sans-serif;
+        text-align: justify;
+        color: white;
+    }
+
+    li{
+      position:relative;
+      left:20px;
+    }
+
+    </style>
+</Layout2>
