@@ -1,6 +1,8 @@
 ---
 import Layout2 from '../layouts/Layout2.astro';
 import Goback from '../components/backbutton.astro'
+import { Image } from "astro:assets";
+import theRealArlim from '/src/assets/arlimPicture.jpg'
 ---
 
 <Layout2>
@@ -40,12 +42,19 @@ import Goback from '../components/backbutton.astro'
                 <li>Complejo Educativo René Toruño Steiner</li><br>
                 <p>Complementary education:</p>
                 <li>Programa Empresarial ¡Supérate!:</li>
-                <ul>- ITS Python Certification.</ul>
-                <ul>- Excel Certification</ul>
+                <a href="/PythonCertiport.jpg"><ul>- ITS Python Certification</ul></a>
+                <a href="/ExcelCertiport.jpg"><ul>- Microsoft Excel Certification</ul></a>
                 <ul>- TOEIC Speaking&Writing</ul>
                 <ul>- TOEIC Listenning&Reading</ul><br>
                 <p>Volunteering:</p>
                 <li>Glasswing volunteer teacher.</li>
+              </div>
+            </div>
+
+            <div class="section">
+              <div class="bg"></div>
+              <div class="arlim">
+                <Image src={theRealArlim} alt="me" width="433" height="572"/>
               </div>
             </div>
           </div>
@@ -113,6 +122,15 @@ import Goback from '../components/backbutton.astro'
         font-family: 'Cydonia Century', sans-serif;
         text-align: justify;
         color: white;
+    }
+
+    .arlim {
+        position: relative;
+        z-index: 2;
+        padding-top: 20px;
+        padding-left:55px;
+        padding-right:20px;
+        padding-bottom:20px;
     }
 
     li{
